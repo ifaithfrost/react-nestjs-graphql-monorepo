@@ -1,7 +1,9 @@
-export default function Home() {
+export const Home = () => {
   return (
-    <main className="flex bg-gray-900 w-screen h-screen">
+    <main className="flex h-screen w-screen bg-gray-900">
       <h1>test</h1>
     </main>
   )
 }
+
+export default Home
