@@ -1,16 +1,3 @@
-import type { Config } from 'tailwindcss'
+//TODO: This may not be the best way, but I've tried so many times that it's a future problem.
 
-const config: Config = {
-  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
-  theme: {
-    extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
-    },
-  },
-  plugins: [],
-}
-
-export default config
+module.exports = require('../../packages/tailwind-config/tailwind.config')
