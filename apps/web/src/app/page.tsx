@@ -1,4 +1,4 @@
-import { Card } from 'ui'
+import { Card } from '@custom/ui'
 
 export const Home = () => {
   return (
