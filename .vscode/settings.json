@@ -1,0 +1,8 @@
+{
+  "material-icon-theme.folders.associations": {
+    "back": "Linux"
+  },
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": { "source.fixAll": true },
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+  }
