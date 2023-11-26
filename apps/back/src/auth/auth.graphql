@@ -1,0 +1,24 @@
+type User {
+  id: ID!
+  email: String!
+  name: String!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+type AuthPayload {
+  refreshToken: String
+  token: String
+  user: User
+}
+
+type Query {
+  user: User
+}
+
+type Mutation {
+  login(loginInput: LoginInput): AuthPayload
+}
