@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  dev-db:
+    image: postgres:14.2
+    ports:
+      - 5438:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: docker-postgres
+      POSTGRES_DB: nestgraphql
+    networks:
+      - nestgraphql
+  maildev:
+    image: maildev/maildev
+    ports:
+      - '1025:1025'
+      - '1080:1080'
+    networks:
+      - nestgraphql
+
+networks:
+  nestgraphql:

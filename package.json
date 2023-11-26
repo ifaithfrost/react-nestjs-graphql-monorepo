@@ -3,8 +3,11 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
+    "seed": "cd apps/back && yarn seed",
+    "prisma": "cd apps/back && yarn prisma studio",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "infra": "docker-compose -p \"nestgraphql\" up"
   },
   "devDependencies": {
     "eslint": "^8.48.0",
