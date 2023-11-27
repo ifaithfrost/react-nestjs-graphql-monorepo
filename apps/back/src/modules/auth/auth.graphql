@@ -15,10 +15,19 @@ type AuthPayload {
   user: User
 }
 
+input SignUpInput {
+  email: String!
+  name: String!
+  password: String!
+}
+
 type Query {
   user: User
 }
 
+
 type Mutation {
   login(loginInput: LoginInput): AuthPayload
-}
+  signUp(signUpInput: SignUpInput): String
+  }
+

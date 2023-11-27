@@ -1,0 +1,3 @@
+mutation Mutation($signUpInput: SignUpInput) {
+  signUp(signUpInput: $signUpInput)
+}

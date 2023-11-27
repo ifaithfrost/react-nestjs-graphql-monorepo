@@ -13,6 +13,12 @@ export class LoginInput {
     password: string;
 }
 
+export class SignUpInput {
+    email: string;
+    name: string;
+    password: string;
+}
+
 export class User {
     id: string;
     email: string;
@@ -31,6 +37,8 @@ export abstract class IQuery {
 
 export abstract class IMutation {
     abstract login(loginInput?: Nullable<LoginInput>): Nullable<AuthPayload> | Promise<Nullable<AuthPayload>>;
+
+    abstract signUp(signUpInput?: Nullable<SignUpInput>): Nullable<string> | Promise<Nullable<string>>;
 }
 
 type Nullable<T> = T | null;

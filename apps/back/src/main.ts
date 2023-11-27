@@ -10,6 +10,8 @@ async function bootstrap() {
 
   await app.listen(process.env.API_PORT || 3001)
 
+  // app.useGlobalFilters(new GraphqlExceptionFilter())
+
   // eslint-disable-next-line no-console
   console.log(`Application is running on: ${await app.getUrl()}`)
 }
