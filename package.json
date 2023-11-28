@@ -1,14 +1,14 @@
 {
   "private": true,
   "scripts": {
-    "build": "turbo run build",
     "dev": "turbo run dev",
-    "seed": "cd apps/back && yarn seed",
-    "prisma": "cd apps/back && yarn prisma studio",
+    "build": "turbo run build",
+    "infra": "docker-compose -p \"turbo-boilerplate\" up",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "infra": "docker-compose -p \"nestgraphql\" up",
-    "graphql": "cd apps/web && yarn generate"
+    "back:migrate": "cd apps/back && yarn prisma migrate dev",
+    "back:seed": "cd apps/back && yarn seed",
+    "back:prisma-studio": "cd apps/back && yarn prisma studio",
+    "web:graphql": "cd apps/web && yarn generate"
   },
   "devDependencies": {
     "eslint": "^8.48.0",
@@ -16,7 +16,7 @@
     "tsconfig": "*",
     "turbo": "latest"
   },
-  "name": "nestgraphql",
+  "name": "turbo-boilerplate",
   "packageManager": "npm@9.8.1",
   "workspaces": [
     "apps/*",

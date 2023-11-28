@@ -1,14 +1,18 @@
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
+import { ApolloClient, ApolloProvider, HttpLink, InMemoryCache } from '@apollo/client'
 import type { PropsWithChildren } from 'react'
 
 import { version, name } from '../../package.json'
 
 const client = new ApolloClient({
-  uri: 'http://localhost:4040/graphql',
   cache: new InMemoryCache(),
-  version,
+  link: new HttpLink({
+    uri: process.env.API_URL,
+    fetchOptions: {
+      mode: 'no-cors',
+    },
+  }),
   name,
-  credentials: 'include',
+  version,
 })
 
 export const AppProvider = ({ children }: PropsWithChildren) => {
