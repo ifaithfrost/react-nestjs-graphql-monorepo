@@ -2,18 +2,17 @@ import { ValidationPipe } from '@nestjs/common'
 import { NestFactory } from '@nestjs/core'
 
 import { AppModule } from './app.module'
+import { GraphqlExceptionFilter } from './middlewares/graphql-exception.filter'
 
 const server = async () => {
   const app = await NestFactory.create(AppModule)
 
   app.useGlobalPipes(new ValidationPipe())
+  app.useGlobalFilters(new GraphqlExceptionFilter())
 
-  await app.listen(process.env.API_PORT || 8080)
+  await app.listen(process.env.PORT || 3333)
 
-  // app.useGlobalFilters(new GraphqlExceptionFilter())
-
-  // eslint-disable-next-line no-console
-  console.log(`Application is running on: ${await app.getUrl()}`)
+  console.info(`Application is running on: ${await app.getUrl()}`)
 }
 
 server()

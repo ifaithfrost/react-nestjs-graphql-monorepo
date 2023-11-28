@@ -4,7 +4,6 @@ import { AuthPayload } from 'types/schema'
 
 import { AuthService } from './auth.service'
 import { LoginInput, SignUpInput } from '@/graphql'
-import { LoginInputDTO } from './dtos/login'
 
 @Resolver('Auth')
 export class AuthResolver {
