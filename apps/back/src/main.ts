@@ -3,12 +3,12 @@ import { NestFactory } from '@nestjs/core'
 
 import { AppModule } from './app.module'
 
-async function bootstrap() {
+const server = async () => {
   const app = await NestFactory.create(AppModule)
 
   app.useGlobalPipes(new ValidationPipe())
 
-  await app.listen(process.env.API_PORT || 3001)
+  await app.listen(process.env.API_PORT || 8080)
 
   // app.useGlobalFilters(new GraphqlExceptionFilter())
 
@@ -16,4 +16,4 @@ async function bootstrap() {
   console.log(`Application is running on: ${await app.getUrl()}`)
 }
 
-bootstrap()
+server()

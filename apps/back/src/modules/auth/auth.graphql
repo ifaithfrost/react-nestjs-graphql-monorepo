@@ -28,6 +28,6 @@ type Query {
 
 type Mutation {
   login(loginInput: LoginInput): AuthPayload
-  signUp(signUpInput: SignUpInput): String
+  signUp(signUpInput: SignUpInput): AuthPayload
   }
 

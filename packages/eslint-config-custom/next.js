@@ -42,6 +42,7 @@ module.exports = {
     'react/jsx-props-no-spreading': 'off',
     'react/require-default-props': 'off',
     'import/no-namespace': ['error', { allowComputed: true }],
+    'unicorn/filename-case': "off",
     camelcase: 'off',
     'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }],
     'prettier/prettier': [

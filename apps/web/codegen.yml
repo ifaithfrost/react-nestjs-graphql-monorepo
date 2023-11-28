@@ -9,7 +9,6 @@ generates:
       - 'typescript-react-apollo'
     config:
       maybeValue: T | undefined
-
-hooks:
-  afterAllFileWrite:
-    - yarn eslint --fix
+# hooks:
+#   afterAllFileWrite:
+#     - yarn lint

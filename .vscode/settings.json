@@ -1,11 +1,13 @@
 {
   "material-icon-theme.folders.associations": {
-    "back": "Linux",
+    "back": "Linux"
   },
   "material-icon-theme.files.associations": {
-    "graphql.mjs": "graphql",
+    "graphql.mjs": "graphql"
   },
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": { "source.fixAll": true },
-    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
-  }
+  //   // "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+  //   // "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+}

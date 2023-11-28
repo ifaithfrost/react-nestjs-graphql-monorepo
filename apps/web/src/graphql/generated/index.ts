@@ -66,48 +66,60 @@ export type User = {
   name: Scalars['String']['output']
 }
 
-export type MutationMutationVariables = Exact<{
-  signUpInput?: InputMaybe<SignUpInput>
+export type LoginMutationVariables = Exact<{
+  loginInput?: InputMaybe<LoginInput>
 }>
 
-export type MutationMutation = { __typename?: 'Mutation'; signUp?: string | undefined }
+export type LoginMutation = {
+  __typename?: 'Mutation'
+  login?:
+    | {
+        __typename?: 'AuthPayload'
+        token?: string | undefined
+        refreshToken?: string | undefined
+        user?: { __typename?: 'User'; name: string; id: string; email: string } | undefined
+      }
+    | undefined
+}
 
-export const MutationDocument = gql`
-  mutation Mutation($signUpInput: SignUpInput) {
-    signUp(signUpInput: $signUpInput)
+export const LoginDocument = gql`
+  mutation Login($loginInput: LoginInput) {
+    login(loginInput: $loginInput) {
+      user {
+        name
+        id
+        email
+      }
+      token
+      refreshToken
+    }
   }
 `
-export type MutationMutationFn = Apollo.MutationFunction<
-  MutationMutation,
-  MutationMutationVariables
->
+export type LoginMutationFn = Apollo.MutationFunction<LoginMutation, LoginMutationVariables>
 
 /**
- * __useMutationMutation__
+ * __useLoginMutation__
  *
- * To run a mutation, you first call `useMutationMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useMutationMutation` returns a tuple that includes:
+ * To run a mutation, you first call `useLoginMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useLoginMutation` returns a tuple that includes:
  * - A mutate function that you can call at any time to execute the mutation
  * - An object with fields that represent the current status of the mutation's execution
  *
  * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
  *
  * @example
- * const [mutationMutation, { data, loading, error }] = useMutationMutation({
+ * const [loginMutation, { data, loading, error }] = useLoginMutation({
  *   variables: {
- *      signUpInput: // value for 'signUpInput'
+ *      loginInput: // value for 'loginInput'
  *   },
  * });
  */
-export function useMutationMutation(
-  baseOptions?: Apollo.MutationHookOptions<MutationMutation, MutationMutationVariables>
+export function useLoginMutation(
+  baseOptions?: Apollo.MutationHookOptions<LoginMutation, LoginMutationVariables>
 ) {
   const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useMutation<MutationMutation, MutationMutationVariables>(MutationDocument, options)
+  return Apollo.useMutation<LoginMutation, LoginMutationVariables>(LoginDocument, options)
 }
-export type MutationMutationHookResult = ReturnType<typeof useMutationMutation>
-export type MutationMutationResult = Apollo.MutationResult<MutationMutation>
-export type MutationMutationOptions = Apollo.BaseMutationOptions<
-  MutationMutation,
-  MutationMutationVariables
->
+export type LoginMutationHookResult = ReturnType<typeof useLoginMutation>
+export type LoginMutationResult = Apollo.MutationResult<LoginMutation>
+export type LoginMutationOptions = Apollo.BaseMutationOptions<LoginMutation, LoginMutationVariables>

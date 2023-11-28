@@ -12,7 +12,7 @@ export class AuthService {
 
   async signUp({ email, password, name }: SignUpInput): Promise<AuthPayload> {
     if (await this.prismaService.user.findUnique({ where: { email } })) {
-      throw new HttpException('Email already exist', HttpStatus.CONFLICT)
+      throw new HttpException('Email already exists', HttpStatus.CONFLICT)
     }
 
     const passwordHash = await hash(password, 10)
@@ -24,6 +24,7 @@ export class AuthService {
         password: passwordHash,
       },
     })
+
     return {
       refreshToken: 'refreshToken',
       token: 'token',
@@ -35,14 +36,14 @@ export class AuthService {
     }
   }
 
-  login({ email, password }: LoginInput): AuthPayload {
+  login(loginInput: LoginInput): AuthPayload {
     return {
       token: 'token',
       refreshToken: 'refreshToken',
       user: {
-        email: email,
+        email: loginInput.email,
         id: 'id',
-        name: password,
+        name: loginInput.password,
       },
     }
   }

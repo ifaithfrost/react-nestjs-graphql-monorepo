@@ -3,7 +3,8 @@ import { Args, Mutation, Resolver } from '@nestjs/graphql'
 import { AuthPayload } from 'types/schema'
 
 import { AuthService } from './auth.service'
-import { SignUpInput } from '@/graphql'
+import { LoginInput, SignUpInput } from '@/graphql'
+import { LoginInputDTO } from './dtos/login'
 
 @Resolver('Auth')
 export class AuthResolver {
@@ -15,7 +16,7 @@ export class AuthResolver {
   }
 
   @Mutation('login')
-  login(@Args('email') email: string, @Args('password') password: string): AuthPayload {
-    return this.authService.login({ email, password })
+  login(@Args('loginInput') loginInput: LoginInput): AuthPayload {
+    return this.authService.login(loginInput)
   }
 }

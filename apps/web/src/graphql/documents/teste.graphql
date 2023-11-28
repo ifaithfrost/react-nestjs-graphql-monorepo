@@ -1,3 +1,11 @@
-mutation Mutation($signUpInput: SignUpInput) {
-  signUp(signUpInput: $signUpInput)
+mutation Login($loginInput: LoginInput) {
+  login(loginInput: $loginInput) {
+    user {
+      name
+      id
+      email
+    }
+    token
+    refreshToken
+  }
 }
